@@ -36,7 +36,7 @@ void KGit::listBranches(git_repository *repository, const char *path) {
         git_branch_t type;
         while (!git_branch_next(&ref, &type, it)) {
             // Do something with 'ref' and 'type'.
-            printf("\t---------%s--------\n", ref);
+            printf("\t%s\n", git_reference_name(ref));
             git_reference_free(ref);
         }
         git_branch_iterator_free(it);
