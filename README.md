@@ -25,9 +25,13 @@ under your `C:/Program Files (x86)/libgit2`.
 Once you have the required components, you can (could) build this POC.
 
 ```shell
+cd C:\src
+git clone KGit
 cd KGit
 mkdir build
 cd build
 cmake -S .. -B .
 cmake --build .
+copy "C:\Program Files (x86)\libgit2\bin\git2.dll" .
+Debug\KGit.exe
 ```
