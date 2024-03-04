@@ -23,7 +23,7 @@ void KGit::cloneRepository(git_repository *repository, const char *url, const ch
     }
 }
 
-void KGit::listBranches(git_repository *repository, const char *path) {
+void KGit::listBranches(git_repository *repository, const char *path, git_branch_t branch_type) {
     int error = git_repository_open(&repository, path);
     if (error < 0) {
         const git_error *e = git_error_last();
@@ -31,7 +31,7 @@ void KGit::listBranches(git_repository *repository, const char *path) {
         /* exit(error); */
     }
     git_branch_iterator *it;
-    if (!git_branch_iterator_new(&it, repository, GIT_BRANCH_ALL)) {
+    if (!git_branch_iterator_new(&it, repository, branch_type)) {
         git_reference *ref;
         git_branch_t type;
         while (!git_branch_next(&ref, &type, it)) {

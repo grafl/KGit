@@ -20,7 +20,7 @@ public:
     static KGit *GetInstance();
 
     static void cloneRepository(git_repository *repository, const char *url, const char *path);
-    static void listBranches(git_repository *repository, const char *path);
+    static void listBranches(git_repository *repository, const char *path, git_branch_t branch_type);
     static void revwalking(git_repository *repository, const char *path);
 };
 
